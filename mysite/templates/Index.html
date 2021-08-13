@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<div>
+		<img class="fullwidth"
+			 src="/media/Happy_Greens.jpg"
+			 alt="Happy Vertical Farm Worker"
+			 title="Happy_Greens">
+		<div class="fullwidth titletext titleposition">
+			<p>Expeditor</p>
+		</div>
+		
+		<div class="center">
+			<p class="whtbg">Current Order</p>
+			<table class="whtbg style">
+				<thead>
+					<tr>
+						<th>Nomenclature</th>
+						<th>Qty</th>
+						<th>Unit</th>
+						<th>Deliver</th>
+						<th>PLU</th>
+						<th>Price</th>
+					</tr>
+				<tbody>
+				{% for item in query_results %}
+					<tr>
+						<td>{{ item.Nomenclature }}</td>
+						<td>{{ item.Qty }}</td>
+						<td>{{ item.Unit }}</td>
+						<td>{{ item.Deliver }}</td>
+						<td>{{ item.PLU }}</td>
+						<td>{{ item.Price }}</td>
+					</tr>
+				{% endfor %}	
+				</tbody>
+				<tfoot>
+				{% for item in query_results %}
+					<tr>
+						<td colspan="2">Total</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td>{{ item.Total }}</td>
+					</tr>
+				{% endfor %}
+				</tfoot>
+			</table>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<button class="button centerbutton hover active" type="button" onclick="">Amend</button>
+	   
+{% endblock %}
